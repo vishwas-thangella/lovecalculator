@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+</head>
+
+<body>
+    <header>
+        <img src="./icon.png" alt="icon" width="50px" height="50px">
+        <h3>Love Calculator</h3>
+    </header>
+    <section>
+        <div class="input_container">
+            <input type="text" placeholder="Enter Your Name" class="input" id="name_input">
+            <input type="text" placeholder="Enter Your Crush Name" class="input" id="crush_input">
+        </div>
+        <div class="result_container">
+            <span class="result" id="result">0%</span>
+        </div>
+        <div class="button_container">
+            <button class="calculate" id="calculate">Calculate</button>
+        </div>
+    </section>
+</body>
+
+</html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+    * {
+        margin: 0px;
+    }
+    
+    header {
+        height: 10vh;
+        width: 99.9vw;
+        background-color: rgb(230, 84, 108);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        gap: 10px;
+        margin: auto;
+        font-family: 'Dancing Script', cursive;
+    }
+    
+    section {
+        width: 100vw;
+        height: 100vh;
+        background-color: pink;
+    }
+    
+    .input {
+        width: 90%;
+        height: 30px;
+        border-radius: 7px;
+        border-color: palevioletred;
+        font-family: 'Dancing Script', cursive;
+    }
+    
+    .input_container {
+        display: flex;
+        gap: 1px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+    }
+    
+    .result_container {
+        width: 60vw;
+        height: 100px;
+        margin: auto;
+    }
+    
+    .result {
+        font-size: 35px;
+    }
+    
+    .result::before {
+        content: "Result = ";
+    }
+    
+    .result_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Dancing Script', cursive;
+    }
+    
+    .calculate {
+        width: 90%;
+        height: 30px;
+        margin: auto;
+        background-color: rgb(230, 84, 108);
+        border-color: pink;
+        color: white;
+        font-family: "Dancing Script";
+        border-radius: 20px;
+    }
+    
+    .button_container {
+        margin: auto;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<script>
+    document.getElementById("calculate").onclick = function() {
+        let name = document.getElementById("name_input").value;
+        let crush = document.getElementById("crush_input").value;
+        if (name == "" || crush == "") {
+            document.getElementById("result").innerHTML = "Check name";
+            setTimeout(function() {
+                location.reload();
+            }, 2000)
+        } else {
+            var name_length = name.length;
+            var crush_length = crush.length;
+            var random = Math.random() * 100;
+            var percentage = Math.floor(random);
+            document.getElementById("result").innerHTML = percentage + "%";
+            setTimeout(function() {
+                location.reload();
+            }, 3000)
+        }
+    }
+</script>
